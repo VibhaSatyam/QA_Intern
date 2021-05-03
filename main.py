@@ -3,10 +3,7 @@ import chromedriver_autoinstaller
 import time
 import sys
 
-
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
-                                      # and if it doesn't exist, download it automatically,
-                                      # then add chromedriver to path
+chromedriver_autoinstaller.install()  # Checks if chromedriver exists or not. If doesn't then then downloads and adds to path 
 
 driver = webdriver.Chrome()
 
@@ -20,7 +17,7 @@ driver.find_element_by_name("password").send_keys("testerQA123")
 driver.find_element_by_xpath("//button/span[contains(text(),'Login')]").click()
 
 #used to add delay in the execution.
-time.sleep(1) 
+time.sleep(1)
 
 #Task-2
 driver.get("https://stage-www.keyflow.com/en/profile/me")
