@@ -1,12 +1,16 @@
 from selenium import webdriver
 import chromedriver_autoinstaller
 import time
+import sys
+
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
                                       # and if it doesn't exist, download it automatically,
                                       # then add chromedriver to path
 
 driver = webdriver.Chrome()
+
+sys.stdout = open("test.txt", "w")
 
 #Task-1
 driver.get("https://stage-www.keyflow.com/en/profile/login")
@@ -22,3 +26,4 @@ driver.get("https://stage-www.keyflow.com/en/profile/me")
 
 age=driver.find_element_by_xpath("//h1[contains(@class,'userName')]").text
 print(age[-2:])
+sys.stdout.close()
