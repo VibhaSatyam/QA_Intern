@@ -1,14 +1,11 @@
 from selenium import webdriver
 import chromedriver_autoinstaller
 import time
-import sys
 
-chromedriver_autoinstaller.install()  # Checks if chromedriver exists or not. If doesn't then then downloads and adds to path 
+
+chromedriver_autoinstaller.install()  # Checks if chromedriver exists or not. If doesn't then then downloads and adds to path
 
 driver = webdriver.Chrome()
-
-# creates a output.txt file in the project folder and mode 'w' writes output.
-sys.stdout = open("output.txt", "w")
 
 #Task-1
 driver.get("https://stage-www.keyflow.com/en/profile/login")
@@ -24,7 +21,9 @@ driver.get("https://stage-www.keyflow.com/en/profile/me")
 
 #Task3
 
+# creates a output.txt file in the project folder and mode 'w' writes output.
+file = open("output.txt", "w")
 age=driver.find_element_by_xpath("//h1[contains(@class,'userName')]").text
-print(age[-2:])
-sys.stdout.close()
+file.write("%s" % age[-2:])
+file.close()
 driver.close()
